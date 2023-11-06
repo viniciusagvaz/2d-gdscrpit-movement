@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1y4ibkiwxa68"]
 
 [ext_resource type="Texture2D" uid="uid://cmmx5vydymt6" path="res://Art Assets/Background/Sky.png" id="1_82q5t"]
-[ext_resource type="Texture2D" uid="uid://cuyudlawh5tye" path="res://Art Assets/Tiles/Tiles (16x16).png" id="2_hyenq"]
+[ext_resource type="Texture2D" uid="uid://cuyudlawh5tye" path="res://Art Assets/Tiles/Tiles (16x16).png" id="2_t2ia3"]
 [ext_resource type="PackedScene" uid="uid://pdmvfetjbodg" path="res://Scenes/player.tscn" id="3_r0160"]
 [ext_resource type="PackedScene" uid="uid://lglu2r47ltbs" path="res://Scenes/spikes.tscn" id="4_cpeti"]
 [ext_resource type="PackedScene" uid="uid://c7j5d4jq3152h" path="res://Scenes/duck_girl.tscn" id="5_3166d"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tr1p"]
-texture = ExtResource("2_hyenq")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n30nd"]
+texture = ExtResource("2_t2ia3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -107,21 +107,24 @@ texture = ExtResource("2_hyenq")
 
 [sub_resource type="TileSet" id="TileSet_6ba1v"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_8tr1p")
+sources/0 = SubResource("TileSetAtlasSource_n30nd")
 
 [node name="World" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 16.0
 offset_right = 1152.0
-offset_bottom = 640.0
+offset_bottom = 656.0
 color = Color(0.113281, 0.753906, 0.996094, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Sky" type="TextureRect" parent="."]
-offset_top = 200.0
+offset_top = 192.0
 offset_right = 1152.0
-offset_bottom = 392.0
+offset_bottom = 384.0
 texture = ExtResource("1_82q5t")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -142,4 +145,4 @@ position = Vector2(792, 376)
 position = Vector2(584, 376)
 
 [node name="Duck_Girl" parent="." instance=ExtResource("5_3166d")]
-position = Vector2(1120, 368)
+position = Vector2(1120, 344)
