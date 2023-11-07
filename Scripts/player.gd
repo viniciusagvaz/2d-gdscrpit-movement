@@ -8,12 +8,12 @@ func _process(delta):
 		velocity.y += gravity	
 		$Sprite2D.frame = 1
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
 		$Sprite2D.flip_h = false
 		$AnimationPlayer.play('walking')
 		
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("move_left"):
 		velocity.x  = -speed
 		$Sprite2D.flip_h = true
 		$AnimationPlayer.play('walking')
@@ -24,7 +24,7 @@ func _process(delta):
 		
 	
 	
-	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y -= speed
 		
 		
