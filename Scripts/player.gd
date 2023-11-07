@@ -4,7 +4,6 @@ var gravity = 10
 var speed = 300
 
 func _process(delta):
-	
 	if !is_on_floor():
 		velocity.y += gravity	
 		$Sprite2D.frame = 1
@@ -21,8 +20,9 @@ func _process(delta):
 		
 	else:
 		velocity.x = 0
-		$AnimationPlayer.stop()
-		$Sprite2D.frame = 0
+		$AnimationPlayer.play('parado')
+		
+	
 	
 	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y -= speed

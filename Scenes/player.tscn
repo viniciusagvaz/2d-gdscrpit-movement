@@ -1,10 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://pdmvfetjbodg"]
+[gd_scene load_steps=8 format=3 uid="uid://pdmvfetjbodg"]
 
-[ext_resource type="Texture2D" uid="uid://bf3m6edv4lv" path="res://Art Assets/Characters/Duck/Duck (16x16).png" id="1_g3cnk"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_iuttu"]
+[ext_resource type="Texture2D" uid="uid://qekcv54nc2y4" path="res://Art Assets/Characters/Duck/Duck.png" id="2_wgmcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of6j2"]
 size = Vector2(13.5, 15)
+
+[sub_resource type="Animation" id="Animation_03byj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_5a7j0"]
 resource_name = "walking"
@@ -23,8 +38,10 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_03byj"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_pg272"]
+resource_name = "parado"
+length = 0.3
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,15 +49,16 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [2, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rox3f"]
 _data = {
 "RESET": SubResource("Animation_03byj"),
+"parado": SubResource("Animation_pg272"),
 "walking": SubResource("Animation_5a7j0")
 }
 
@@ -53,8 +71,9 @@ position = Vector2(0.25, 0.5)
 shape = SubResource("RectangleShape2D_of6j2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_g3cnk")
-hframes = 2
+texture = ExtResource("2_wgmcx")
+hframes = 3
+frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
