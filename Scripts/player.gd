@@ -20,7 +20,7 @@ func _process(delta):
 		
 	else:
 		velocity.x = 0
-		$AnimationPlayer.play('parado')
+		$AnimationPlayer.play("stading_still")
 		
 	
 	
